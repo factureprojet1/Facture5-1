@@ -4,49 +4,21 @@
 
 /* Transitions globales pour le mode sombre */
 * {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
 /* Amélioration des placeholders en mode sombre */
 .dark input::placeholder,
 .dark textarea::placeholder,
 .dark select::placeholder {
-  color: #9CA3AF !important;
-}
-
-/* Amélioration des labels en mode sombre */
-.dark label {
-  color: #D1D5DB;
-}
-
-/* Amélioration des titres en mode sombre */
-.dark h1,
-.dark h2,
-.dark h3,
-.dark h4,
-.dark h5,
-.dark h6 {
-  color: #F3F4F6;
+  color: #9CA3AF;
 }
 
 /* Focus states améliorés pour le mode sombre */
 .dark input:focus,
 .dark textarea:focus,
 .dark select:focus {
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-  border-color: #3B82F6;
-}
-
-/* Amélioration des boutons en mode sombre */
-.dark button:not(.bg-gradient-to-r):not(.bg-teal-600):not(.bg-blue-600):not(.bg-purple-600):not(.bg-green-600):not(.bg-red-600):not(.bg-amber-600):not(.bg-orange-600) {
-  background-color: #374151;
-  color: #F3F4F6;
-  border-color: #4B5563;
-}
-
-.dark button:not(.bg-gradient-to-r):not(.bg-teal-600):not(.bg-blue-600):not(.bg-purple-600):not(.bg-green-600):not(.bg-red-600):not(.bg-amber-600):not(.bg-orange-600):hover {
-  background-color: #4B5563;
-  border-color: #6B7280;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
 }
 
 /* Scrollbars en mode sombre */
@@ -66,67 +38,4 @@
 
 .dark ::-webkit-scrollbar-thumb:hover {
   background: #9CA3AF;
-}
-
-/* Amélioration des modals en mode sombre */
-.dark .modal-backdrop {
-  background-color: rgba(17, 24, 39, 0.8);
-}
-
-/* Amélioration des cartes en mode sombre */
-.dark .card {
-  background-color: #1F2937;
-  border-color: #374151;
-}
-
-/* Amélioration des formulaires en mode sombre */
-.dark form {
-  background-color: #1F2937;
-}
-
-.dark .form-section {
-  background-color: #374151;
-  border-color: #4B5563;
-}
-
-/* Amélioration des tableaux en mode sombre */
-.dark table {
-  background-color: #1F2937;
-}
-
-.dark thead {
-  background-color: #374151;
-}
-
-.dark tbody tr:hover {
-  background-color: #374151;
-}
-
-/* Amélioration des alertes en mode sombre */
-.dark .alert {
-  border-color: #4B5563;
-}
-
-.dark .alert-info {
-  background-color: rgba(59, 130, 246, 0.1);
-  border-color: rgba(59, 130, 246, 0.3);
-  color: #93C5FD;
-}
-
-.dark .alert-warning {
-  background-color: rgba(245, 158, 11, 0.1);
-  border-color: rgba(245, 158, 11, 0.3);
-  color: #FCD34D;
-}
-
-.dark .alert-error {
-  background-color: rgba(239, 68, 68, 0.1);
-  border-color: rgba(239, 68, 68, 0.3);
-  color: #FCA5A5;
-}
-
-.dark .alert-success {
-  background-color: rgba(16, 185, 129, 0.1);
-  border-color: rgba(16, 185, 129, 0.3);
-  color: #6EE7B7;
 }
