@@ -141,32 +141,21 @@ function AppContent() {
       {/* Bannière de vérification d'email - FIXE AU-DESSUS DE TOUT */}
       <EmailVerificationBanner />
       
-      {/* Notification d'expiration proche - FIXE AU-DESSUS DE TOUT */}
-      {showExpirationNotification && subscriptionStatus.shouldShowNotification && (
-        <div className="fixed top-0 left-0 right-0 z-[100]">
-          <ExpirationNotification
-            daysRemaining={subscriptionStatus.daysRemaining}
-            onRenew={handleRenewSubscription}
-            onDismiss={handleDismissNotification}
-          />
-        </div>
-      )}
-      
-    <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 flex ${showExpirationNotification && subscriptionStatus.shouldShowNotification ? 'pt-32' : 'pt-16'}`}>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex">
       <LicenseAlert onUpgrade={() => setShowUpgradePage(true)} />
       <Sidebar 
         open={sidebarOpen} 
         setOpen={setSidebarOpen} 
         onUpgrade={() => setShowUpgradePage(true)} 
       />
-      <div className={`flex-1 transition-all duration-300 ${sidebarOpen ? 'ml-64' : 'ml-16'}`}>
+      <div className={`flex-1 transition-all duration-300 ${sidebarOpen ? 'lg:ml-64' : 'lg:ml-16'} ${sidebarOpen ? 'ml-0' : 'ml-0'}`}>
         <Header 
           sidebarOpen={sidebarOpen} 
           setSidebarOpen={setSidebarOpen}
           onOpenSearch={() => setShowGlobalSearch(true)}
           onOpenNotifications={() => setShowNotifications(true)}
         />
-        <main className="p-6 bg-gray-50 dark:bg-gray-900 min-h-screen">
+        <main className="p-4 sm:p-6 bg-gray-50 dark:bg-gray-900 min-h-screen max-w-screen-xl mx-auto">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/dashboard" element={<Dashboard />} />
@@ -188,6 +177,15 @@ function AppContent() {
           </Routes>
         </main>
       </div>
+      
+      {/* Notification d'expiration proche - EN BAS À DROITE */}
+      {showExpirationNotification && subscriptionStatus.shouldShowNotification && (
+        <ExpirationNotification
+          daysRemaining={subscriptionStatus.daysRemaining}
+          onRenew={handleRenewSubscription}
+          onDismiss={handleDismissNotification}
+        />
+      )}
       
       {/* Recherche globale */}
       <GlobalSearch 
