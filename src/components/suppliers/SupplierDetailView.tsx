@@ -270,13 +270,13 @@ export default function SupplierDetailView({ supplier, onBack }: SupplierDetailV
         <div className="flex items-center space-x-4">
           <button
             onClick={onBack}
-            className="p-2 text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+            className="p-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
           >
             <ArrowLeft className="w-5 h-5" />
           </button>
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Fiche Fournisseur</h1>
-            <p className="text-gray-600">{supplier.name}</p>
+            <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Fiche Fournisseur</h1>
+            <p className="text-gray-600 dark:text-gray-300">{supplier.name}</p>
           </div>
         </div>
         <button
@@ -289,10 +289,10 @@ export default function SupplierDetailView({ supplier, onBack }: SupplierDetailV
       </div>
 
       {/* Informations générales */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors duration-300">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-4">
-            <h3 className="font-semibold text-gray-900 dark:text-gray-100 flex items-center space-x-2">
+            <h3 className="font-semibold text-gray-900 dark:text-gray-100 flex items-center space-x-2 transition-colors duration-300">
               <Building2 className="w-5 h-5 text-orange-600" />
               <span>Informations générales</span>
             </h3>
@@ -300,15 +300,15 @@ export default function SupplierDetailView({ supplier, onBack }: SupplierDetailV
               <div className="flex items-center space-x-3">
                 <Building2 className="w-5 h-5 text-gray-400" />
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-gray-100">{supplier.name}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">ICE: {supplier.ice}</p>
+                  <p className="font-medium text-gray-900 dark:text-gray-100 transition-colors duration-300">{supplier.name}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">ICE: {supplier.ice}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <User className="w-5 h-5 text-gray-400" />
                 <div>
-                  <p className="font-medium text-gray-900 dark:text-gray-100">{supplier.contactPerson}</p>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">Personne de contact</p>
+                  <p className="font-medium text-gray-900 dark:text-gray-100 transition-colors duration-300">{supplier.contactPerson}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors duration-300">Personne de contact</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
@@ -336,7 +336,7 @@ export default function SupplierDetailView({ supplier, onBack }: SupplierDetailV
           </div>
           
           <div className="space-y-4">
-            <h3 className="font-semibold text-gray-900 dark:text-gray-100 flex items-center space-x-2">
+            <h3 className="font-semibold text-gray-900 dark:text-gray-100 flex items-center space-x-2 transition-colors duration-300">
               <DollarSign className="w-5 h-5 text-green-600" />
               <span>Résumé financier</span>
             </h3>

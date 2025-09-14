@@ -147,11 +147,11 @@ export default function AddUserModal({ isOpen, onClose }: AddUserModalProps) {
     <Modal isOpen={isOpen} onClose={onClose} title="Nouvel Utilisateur" size="xl">
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Informations de base */}
-        <div className="bg-gray-50 rounded-lg p-6">
-          <h4 className="text-md font-semibold text-gray-900 mb-4">Informations de base</h4>
+        <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 transition-colors duration-300">
+          <h4 className="text-md font-semibold text-gray-900 dark:text-gray-100 mb-4">Informations de base</h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Nom complet *
               </label>
               <input
@@ -160,13 +160,13 @@ export default function AddUserModal({ isOpen, onClose }: AddUserModalProps) {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                 placeholder="Nom de l'utilisateur"
               />
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Email/Login *
               </label>
               <input
@@ -175,13 +175,13 @@ export default function AddUserModal({ isOpen, onClose }: AddUserModalProps) {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                 placeholder="utilisateur@entreprise.com"
               />
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Mot de passe *
               </label>
               <div className="relative">
@@ -192,7 +192,7 @@ export default function AddUserModal({ isOpen, onClose }: AddUserModalProps) {
                   onChange={handleChange}
                   required
                   minLength={6}
-                  className="w-full px-3 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="w-full px-3 py-2 pr-10 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                   placeholder="Minimum 6 caractères"
                 />
                 <button
@@ -210,7 +210,7 @@ export default function AddUserModal({ isOpen, onClose }: AddUserModalProps) {
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Confirmer le mot de passe *
               </label>
               <input
@@ -219,20 +219,20 @@ export default function AddUserModal({ isOpen, onClose }: AddUserModalProps) {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                 placeholder="Confirmer le mot de passe"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Statut
               </label>
               <select
                 name="status"
                 value={formData.status}
                 onChange={handleChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
               >
                 <option value="active">Actif</option>
                 <option value="inactive">Inactif</option>
@@ -242,9 +242,9 @@ export default function AddUserModal({ isOpen, onClose }: AddUserModalProps) {
         </div>
 
         {/* Permissions */}
-        <div className="bg-gray-50 rounded-lg p-6">
+        <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-6 transition-colors duration-300">
           <div className="flex items-center justify-between mb-4">
-            <h4 className="text-md font-semibold text-gray-900 flex items-center space-x-2">
+            <h4 className="text-md font-semibold text-gray-900 dark:text-gray-100 flex items-center space-x-2">
               <Shield className="w-5 h-5 text-indigo-600" />
               <span>Permissions d'accès</span>
             </h4>
@@ -272,26 +272,26 @@ export default function AddUserModal({ isOpen, onClose }: AddUserModalProps) {
                 key={key}
                 className={`flex items-start space-x-3 p-4 border rounded-lg cursor-pointer transition-all duration-200 ${
                   formData.permissions[key as keyof UserPermissions]
-                    ? 'border-indigo-300 bg-indigo-50'
-                    : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                    ? 'border-indigo-300 bg-indigo-50 dark:bg-indigo-900/20 dark:border-indigo-600'
+                    : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 hover:bg-gray-50 dark:hover:bg-gray-600'
                 }`}
               >
                 <input
                   type="checkbox"
                   checked={formData.permissions[key as keyof UserPermissions]}
                   onChange={(e) => handlePermissionChange(key as keyof UserPermissions, e.target.checked)}
-                  className="mt-1 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                  className="mt-1 rounded border-gray-300 dark:border-gray-600 text-indigo-600 focus:ring-indigo-500"
                 />
                 <div>
-                  <p className="font-medium text-gray-900">{info.label}</p>
-                  <p className="text-xs text-gray-500">{info.description}</p>
+                  <p className="font-medium text-gray-900 dark:text-gray-100 transition-colors duration-300">{info.label}</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400 transition-colors duration-300">{info.description}</p>
                 </div>
               </label>
             ))}
           </div>
           
-          <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-            <p className="text-sm text-blue-800">
+          <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg transition-colors duration-300">
+            <p className="text-sm text-blue-800 dark:text-blue-200">
               💡 <strong>Conseil :</strong> Accordez uniquement les permissions nécessaires au rôle de l'utilisateur. 
               Vous pourrez les modifier à tout moment.
             </p>
@@ -302,7 +302,7 @@ export default function AddUserModal({ isOpen, onClose }: AddUserModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
           >
             Annuler
           </button>

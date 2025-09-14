@@ -65,7 +65,7 @@ export default function AddOvertimeModal({ isOpen, onClose }: AddOvertimeModalPr
     <Modal isOpen={isOpen} onClose={onClose} title="Ajouter Heures Supplémentaires" size="md">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Employé *
           </label>
           <select
@@ -73,7 +73,7 @@ export default function AddOvertimeModal({ isOpen, onClose }: AddOvertimeModalPr
             value={formData.employeeId}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
           >
             <option value="">Sélectionner un employé</option>
             {employees.map(employee => (
@@ -86,7 +86,7 @@ export default function AddOvertimeModal({ isOpen, onClose }: AddOvertimeModalPr
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Date *
             </label>
             <input
@@ -95,12 +95,12 @@ export default function AddOvertimeModal({ isOpen, onClose }: AddOvertimeModalPr
               value={formData.date}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Nombre d'heures *
             </label>
             <input
@@ -111,14 +111,14 @@ export default function AddOvertimeModal({ isOpen, onClose }: AddOvertimeModalPr
               min="0.5"
               step="0.5"
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
               placeholder="2.5"
             />
           </div>
         </div>
         
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Taux horaire (MAD) *
           </label>
           <input
@@ -129,13 +129,13 @@ export default function AddOvertimeModal({ isOpen, onClose }: AddOvertimeModalPr
             min="0"
             step="0.01"
             required
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
             placeholder="50.00"
           />
         </div>
         
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
             Description (optionnel)
           </label>
           <textarea
@@ -143,14 +143,14 @@ export default function AddOvertimeModal({ isOpen, onClose }: AddOvertimeModalPr
             value={formData.description}
             onChange={handleChange}
             rows={3}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
             placeholder="Raison des heures supplémentaires..."
           />
         </div>
 
         {formData.hours > 0 && formData.rate > 0 && (
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
-            <p className="text-amber-800 font-medium">
+          <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-lg p-4 transition-colors duration-300">
+            <p className="text-amber-800 dark:text-amber-200 font-medium">
               Total à payer: {(formData.hours * formData.rate).toFixed(2)} MAD
             </p>
           </div>
@@ -160,7 +160,7 @@ export default function AddOvertimeModal({ isOpen, onClose }: AddOvertimeModalPr
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
           >
             Annuler
           </button>

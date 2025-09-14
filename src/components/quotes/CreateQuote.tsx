@@ -253,7 +253,7 @@ export default function CreateQuote() {
           </div>
 
           {/* Template Selection */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors duration-300">
             <TemplateSelector 
               selectedTemplate={selectedTemplate}
               onTemplateSelect={setSelectedTemplate}
@@ -262,7 +262,7 @@ export default function CreateQuote() {
           </div>
 
           {/* Quote Info */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors duration-300">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Informations Devis</h3>
             <div className="grid grid-cols-2 gap-4">
               <div>
@@ -273,7 +273,7 @@ export default function CreateQuote() {
                   type="date"
                   value={quoteDate}
                   onChange={(e) => setQuoteDate(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                 />
               </div>
               <div>
@@ -284,14 +284,14 @@ export default function CreateQuote() {
                   type="date"
                   value={validUntil}
                   onChange={(e) => setValidUntil(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                 />
               </div>
             </div>
           </div>
 
           {/* Client Information */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors duration-300">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Informations Client</h3>
             
             <div className="mb-4">
@@ -301,7 +301,7 @@ export default function CreateQuote() {
               <select
                 value={selectedClientId}
                 onChange={(e) => handleClientSelect(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
               >
                 <option value="">Choisir un client...</option>
                 {clients.map(client => (
@@ -338,7 +338,7 @@ export default function CreateQuote() {
           </div>
 
           {/* Quote Items */}
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors duration-300">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Articles/Services</h3>
               <button
@@ -360,7 +360,7 @@ export default function CreateQuote() {
 
             <div className="space-y-4">
               {items.map((item, index) => (
-                <div key={item.id} className="border border-gray-200 dark:border-gray-600 rounded-lg p-4 bg-white dark:bg-gray-700">
+                <div key={item.id} className="border border-gray-200 dark:border-gray-600 rounded-lg p-4 bg-white dark:bg-gray-700 transition-colors duration-300">
                   <div className="flex items-center justify-between mb-3">
                     <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Article #{index + 1}</span>
                     {items.length > 1 && (
@@ -381,7 +381,7 @@ export default function CreateQuote() {
                       <select
                         value={item.description}
                         onChange={(e) => handleProductSelect(item.id, e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                       >
                         <option value="">Sélectionner un produit...</option>
                         {products.map(product => (
@@ -404,7 +404,7 @@ export default function CreateQuote() {
                         min="1"
                         value={item.quantity}
                         onChange={(e) => updateItem(item.id, 'quantity', parseFloat(e.target.value) || 0)}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                         placeholder={`Ex: 25 ${getProductBySku(item.description)?.unit || 'unité'}`}
                       />
                     </div>
@@ -418,7 +418,7 @@ export default function CreateQuote() {
                         step="0.01"
                         value={item.unitPrice}
                         disabled
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-600 text-gray-500 dark:text-gray-400"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-600 text-gray-500 dark:text-gray-400 transition-colors duration-300"
                       />
                     </div>
                   </div>
@@ -432,7 +432,7 @@ export default function CreateQuote() {
                       <select
                         value={item.vatRate}
                         onChange={(e) => updateItem(item.id, 'vatRate', parseFloat(e.target.value))}
-                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                       >
                         <option value={0}>0% (Exonéré)</option>
                         <option value={7}>7% (Produits alimentaires)</option>
@@ -444,7 +444,7 @@ export default function CreateQuote() {
                       <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
                         Total HT (MAD)
                       </label>
-                      <div className="px-3 py-2 bg-gray-50 dark:bg-gray-600 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-900 dark:text-gray-100">
+                      <div className="px-3 py-2 bg-gray-50 dark:bg-gray-600 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-900 dark:text-gray-100 transition-colors duration-300">
                         {item.total.toFixed(2)}
                       </div>
                     </div>
@@ -474,7 +474,7 @@ export default function CreateQuote() {
 
         {/* Right Column - Summary */}
         <div className="space-y-6">
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 sticky top-6">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 sticky top-6 transition-colors duration-300">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Récapitulatif</h3>
             
             <div className="space-y-3">
@@ -492,14 +492,14 @@ export default function CreateQuote() {
               
               <div className="border-t border-gray-200 dark:border-gray-600 pt-3">
                 <div className="flex justify-between">
-                  <span className="font-medium text-gray-900 dark:text-gray-100">Total TTC</span>
-                  <span className="text-lg font-bold text-purple-600">{totalTTC.toFixed(2)} MAD</span>
+                  <p className="text-xs font-medium text-blue-900 dark:text-blue-100 mb-1 transition-colors duration-300">Montant en lettres:</p>
+                  <p className="text-sm text-blue-800 dark:text-blue-200 font-medium transition-colors duration-300">
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
-              <p className="text-xs text-purple-800 dark:text-purple-200">
+            <div className="mt-6 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg transition-colors duration-300">
+              <p className="text-xs text-purple-800 dark:text-purple-200 transition-colors duration-300">
                 Ce devis est valable jusqu'au {new Date(validUntil).toLocaleDateString('fr-FR')} et peut être converti en facture.
               </p>
             </div>

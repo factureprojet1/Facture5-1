@@ -176,7 +176,7 @@ export default function ProjectKanban({ projects, tasks, employees, onEditTask }
                         key={task.id}
                         draggable
                         onDragStart={(e) => handleDragStart(e, task.id)}
-                        className={`bg-white rounded-lg p-4 shadow-sm border-l-4 cursor-move hover:shadow-md transition-all duration-200 ${
+                        className={`bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border-l-4 cursor-move hover:shadow-md transition-all duration-200 ${
                           getPriorityColor(task.priority)
                         } ${draggedTask === task.id ? 'opacity-50' : ''}`}
                         style={{ backgroundColor: 'white' }}
@@ -188,7 +188,7 @@ export default function ProjectKanban({ projects, tasks, employees, onEditTask }
                               task.priority === 'high' ? 'bg-red-500' :
                               task.priority === 'medium' ? 'bg-yellow-500' : 'bg-green-500'
                             }`} />
-                            <span className="text-xs font-medium text-gray-600 dark:text-gray-300">
+                            <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
                               {project?.name || 'Projet supprimé'}
                             </span>
                           </div>
@@ -209,11 +209,11 @@ export default function ProjectKanban({ projects, tasks, employees, onEditTask }
                         </div>
 
                         {/* Task Title */}
-                        <h4 className="font-medium text-gray-900 mb-2">{task.title}</h4>
+                        <h4 className="font-medium text-gray-900 dark:text-gray-100 mb-2">{task.title}</h4>
                         
                         {/* Task Description */}
                         {task.description && (
-                          <p className="text-sm text-gray-600 mb-3">
+                          <p className="text-sm text-gray-600 dark:text-gray-300 mb-3">
                             {task.description.length > 80 ? 
                               task.description.substring(0, 80) + '...' : 
                               task.description
@@ -225,7 +225,7 @@ export default function ProjectKanban({ projects, tasks, employees, onEditTask }
                         <div className="space-y-2">
                           <div className="flex items-center space-x-2">
                             <User className="w-4 h-4 text-gray-400" />
-                            <span className="text-xs text-gray-600">
+                            <span className="text-xs text-gray-600 dark:text-gray-300">
                               {getEmployeeName(task.assignedTo)}
                             </span>
                           </div>
@@ -241,7 +241,7 @@ export default function ProjectKanban({ projects, tasks, employees, onEditTask }
                           {task.estimatedHours && (
                             <div className="flex items-center space-x-2">
                               <Clock className="w-4 h-4 text-gray-400" />
-                              <span className="text-xs text-gray-600">
+                              <span className="text-xs text-gray-600 dark:text-gray-300">
                                 {task.estimatedHours}h estimées
                                 {task.actualHours && ` • ${task.actualHours}h réelles`}
                               </span>
@@ -250,7 +250,7 @@ export default function ProjectKanban({ projects, tasks, employees, onEditTask }
                         </div>
 
                         {/* Task Actions */}
-                        <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-200">
+                        <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-200 dark:border-gray-600">
                           <div className="flex items-center space-x-2">
                             <button className="p-1 text-gray-400 hover:text-blue-600 transition-colors" title="Commentaires">
                               <MessageSquare className="w-4 h-4" />
