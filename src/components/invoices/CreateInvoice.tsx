@@ -348,7 +348,7 @@ export default function CreateInvoice() {
                   type="date"
                   value={invoiceDate}
                   onChange={(e) => setInvoiceDate(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                  className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                 />
               </div>
             </div>
@@ -365,7 +365,7 @@ export default function CreateInvoice() {
               <select
                 value={selectedClientId}
                 onChange={(e) => handleClientSelect(e.target.value)}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               >
                 <option value="">Choisir un client...</option>
                 {clients.map(client => (
@@ -439,7 +439,7 @@ export default function CreateInvoice() {
                       <select
                         value={item.description}
                         onChange={(e) => handleProductSelect(item.id, e.target.value)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                       >
                         <option value="">Sélectionner un produit...</option>
                         {products.map(product => (
@@ -462,7 +462,7 @@ export default function CreateInvoice() {
                         min="1"
                         value={item.quantity}
                         onChange={(e) => updateItem(item.id, 'quantity', parseFloat(e.target.value) || 0)}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                         placeholder={`Ex: 25 ${getProductBySku(item.description)?.unit || 'unité'}`}
                       />
                     </div>
@@ -476,7 +476,7 @@ export default function CreateInvoice() {
                         step="0.01"
                         value={item.unitPrice}
                         disabled
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-gray-50 text-gray-500"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-gray-50 dark:bg-gray-600 text-gray-500 dark:text-gray-400"
                       />
                     </div>
                   </div>
@@ -490,7 +490,7 @@ export default function CreateInvoice() {
                       <select
                         value={item.vatRate}
                         onChange={(e) => updateItem(item.id, 'vatRate', parseFloat(e.target.value))}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                        className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                       >
                         <option value={0}>0% (Exonéré)</option>
                         <option value={7}>7% (Produits alimentaires)</option>
@@ -502,7 +502,7 @@ export default function CreateInvoice() {
                       <label className="block text-xs font-medium text-gray-700 mb-1">
                         Total HT (MAD)
                       </label>
-                      <div className="px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm font-medium text-gray-900">
+                      <div className="px-3 py-2 bg-gray-50 dark:bg-gray-600 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-900 dark:text-gray-100">
                         {item.total.toFixed(2)}
                       </div>
                     </div>
