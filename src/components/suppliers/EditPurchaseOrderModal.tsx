@@ -125,7 +125,7 @@ export default function EditPurchaseOrderModal({ isOpen, onClose, order }: EditP
               value={formData.supplierId}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
             >
               <option value="">Sélectionner un fournisseur</option>
               {suppliers.map(supplier => (
@@ -145,7 +145,7 @@ export default function EditPurchaseOrderModal({ isOpen, onClose, order }: EditP
               name="date"
               value={formData.date}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
             />
           </div>
           
@@ -157,7 +157,7 @@ export default function EditPurchaseOrderModal({ isOpen, onClose, order }: EditP
               name="status"
               value={formData.status}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
             >
               <option value="draft">Brouillon</option>
               <option value="sent">Envoyé</option>
@@ -170,7 +170,7 @@ export default function EditPurchaseOrderModal({ isOpen, onClose, order }: EditP
         {/* Items */}
         <div>
           <div className="flex items-center justify-between mb-4">
-            <h4 className="text-md font-semibold text-gray-900">Articles</h4>
+            <h4 className="text-md font-semibold text-gray-900 dark:text-gray-100 transition-colors duration-300">Articles</h4>
             <button
               type="button"
               onClick={addItem}
@@ -183,9 +183,9 @@ export default function EditPurchaseOrderModal({ isOpen, onClose, order }: EditP
 
           <div className="space-y-4">
             {formData.items.map((item, index) => (
-              <div key={item.id} className="border border-gray-200 rounded-lg p-4">
+              <div key={item.id} className="border border-gray-200 dark:border-gray-600 rounded-lg p-4 bg-white dark:bg-gray-700 transition-colors duration-300">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm font-medium text-gray-700">Article #{index + 1}</span>
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300 transition-colors duration-300">Article #{index + 1}</span>
                   {formData.items.length > 1 && (
                     <button
                       type="button"
@@ -199,33 +199,33 @@ export default function EditPurchaseOrderModal({ isOpen, onClose, order }: EditP
                 
                 <div className="grid grid-cols-1 md:grid-cols-6 gap-3">
                   <div className="md:col-span-2">
-                    <label className="block text-xs font-medium text-gray-700 mb-1">
+                    <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-300">
                       Nom du produit *
                     </label>
                     <input
                       type="text"
                       value={item.productName}
                       onChange={(e) => updateItem(index, 'productName', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                       placeholder="Nom du produit"
                     />
                   </div>
                   
                   <div className="md:col-span-2">
-                    <label className="block text-xs font-medium text-gray-700 mb-1">
+                    <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-300">
                       Description
                     </label>
                     <input
                       type="text"
                       value={item.description}
                       onChange={(e) => updateItem(index, 'description', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                       placeholder="Description détaillée"
                     />
                   </div>
                   
                   <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1">
+                    <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-300">
                       Quantité
                     </label>
                     <input
@@ -234,12 +234,12 @@ export default function EditPurchaseOrderModal({ isOpen, onClose, order }: EditP
                       step="0.001"
                       value={item.quantity}
                       onChange={(e) => updateItem(index, 'quantity', parseFloat(e.target.value) || 0)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                     />
                   </div>
                   
                   <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1">
+                    <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-300">
                       Prix unit. (MAD)
                     </label>
                     <input
@@ -248,33 +248,33 @@ export default function EditPurchaseOrderModal({ isOpen, onClose, order }: EditP
                       step="0.01"
                       value={item.unitPrice}
                       onChange={(e) => updateItem(index, 'unitPrice', parseFloat(e.target.value) || 0)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                     />
                   </div>
                 </div>
                 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-3">
                   <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1">
+                    <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-300">
                       Unité
                     </label>
                     <input
                       type="text"
                       value={item.unit}
                       onChange={(e) => updateItem(index, 'unit', e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                       placeholder="unité, kg, litre..."
                     />
                   </div>
                   
                   <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1">
+                    <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-300">
                       TVA (%)
                     </label>
                     <select
                       value={item.vatRate}
                       onChange={(e) => updateItem(index, 'vatRate', parseFloat(e.target.value))}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
                     >
                       <option value={0}>0% (Exonéré)</option>
                       <option value={7}>7%</option>
@@ -284,10 +284,10 @@ export default function EditPurchaseOrderModal({ isOpen, onClose, order }: EditP
                   </div>
                   
                   <div>
-                    <label className="block text-xs font-medium text-gray-700 mb-1">
+                    <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1 transition-colors duration-300">
                       Total HT (MAD)
                     </label>
-                    <div className="px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-sm font-medium text-gray-900">
+                    <div className="px-3 py-2 bg-gray-50 dark:bg-gray-600 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-900 dark:text-gray-100 transition-colors duration-300">
                       {item.total.toFixed(2)}
                     </div>
                   </div>
@@ -298,18 +298,18 @@ export default function EditPurchaseOrderModal({ isOpen, onClose, order }: EditP
         </div>
 
         {/* Summary */}
-        <div className="bg-gray-50 rounded-lg p-4">
+        <div className="bg-gray-50 dark:bg-gray-700 rounded-lg p-4 transition-colors duration-300">
           <div className="grid grid-cols-3 gap-4 text-center">
             <div>
-              <p className="text-sm text-gray-600">Sous-total HT</p>
-              <p className="text-lg font-bold text-gray-900">{subtotal.toFixed(2)} MAD</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">Sous-total HT</p>
+              <p className="text-lg font-bold text-gray-900 dark:text-gray-100 transition-colors duration-300">{subtotal.toFixed(2)} MAD</p>
             </div>
             <div>
-              <p className="text-sm text-gray-600">TVA</p>
-              <p className="text-lg font-bold text-gray-900">{totalVat.toFixed(2)} MAD</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">TVA</p>
+              <p className="text-lg font-bold text-gray-900 dark:text-gray-100 transition-colors duration-300">{totalVat.toFixed(2)} MAD</p>
             </div>
             <div>
-              <p className="text-sm text-gray-600">Total TTC</p>
+              <p className="text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">Total TTC</p>
               <p className="text-lg font-bold text-orange-600">{totalTTC.toFixed(2)} MAD</p>
             </div>
           </div>
@@ -319,7 +319,7 @@ export default function EditPurchaseOrderModal({ isOpen, onClose, order }: EditP
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
           >
             Annuler
           </button>

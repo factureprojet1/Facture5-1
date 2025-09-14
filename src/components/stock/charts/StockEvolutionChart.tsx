@@ -40,7 +40,7 @@ export default function StockEvolutionChart({ data, productName, unit }: StockEv
   const TrendIcon = trend.icon;
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors duration-300">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Évolution du Stock</h3>

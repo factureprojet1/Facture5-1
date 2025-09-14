@@ -48,7 +48,7 @@ export default function DonutChart({ data, title, subtitle, centerValue, centerL
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors duration-300">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">{title}</h3>
@@ -107,10 +107,10 @@ export default function DonutChart({ data, title, subtitle, centerValue, centerL
             key={index}
             className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all duration-200 ${
               hiddenSegments.has(index) 
-                ? 'bg-gray-50 opacity-50' 
+                ? 'bg-gray-50 dark:bg-gray-700 opacity-50' 
                 : hoveredSegment === index 
-                  ? 'bg-gray-100' 
-                  : 'bg-gray-50 hover:bg-gray-100'
+                  ? 'bg-gray-100 dark:bg-gray-600' 
+                  : 'bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600'
             }`}
             onMouseEnter={() => setHoveredSegment(index)}
             onMouseLeave={() => setHoveredSegment(null)}

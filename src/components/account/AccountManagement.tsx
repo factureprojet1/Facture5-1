@@ -395,16 +395,16 @@ export default function AccountManagement() {
       </div>
 
       {/* Informations sur les permissions */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors duration-300">
         <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center space-x-2">
           <Shield className="w-5 h-5 text-indigo-600" />
           <span>Guide des Permissions</span>
         </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h4 className="font-medium text-blue-900 mb-2">📊 Sections de Base</h4>
-            <ul className="text-sm text-blue-800 space-y-1">
+          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4 transition-colors duration-300">
+            <h4 className="font-medium text-blue-900 dark:text-blue-100 mb-2 transition-colors duration-300">📊 Sections de Base</h4>
+            <ul className="text-sm text-blue-800 dark:text-blue-200 space-y-1 transition-colors duration-300">
               <li>• Tableau de bord (toujours accordé)</li>
               <li>• Factures (création, modification)</li>
               <li>• Devis (création, modification)</li>
@@ -413,9 +413,9 @@ export default function AccountManagement() {
             </ul>
           </div>
           
-          <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-            <h4 className="font-medium text-purple-900 mb-2">🚀 Sections PRO</h4>
-            <ul className="text-sm text-purple-800 space-y-1">
+          <div className="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-700 rounded-lg p-4 transition-colors duration-300">
+            <h4 className="font-medium text-purple-900 dark:text-purple-100 mb-2 transition-colors duration-300">🚀 Sections PRO</h4>
+            <ul className="text-sm text-purple-800 dark:text-purple-200 space-y-1 transition-colors duration-300">
               <li>• Gestion de Stock (avancée)</li>
               <li>• Gestion Fournisseurs (avancée)</li>
               <li>• Gestion RH (employés, congés)</li>
@@ -424,9 +424,9 @@ export default function AccountManagement() {
             </ul>
           </div>
           
-          <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-            <h4 className="font-medium text-green-900 mb-2">⚙️ Administration</h4>
-            <ul className="text-sm text-green-800 space-y-1">
+          <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-lg p-4 transition-colors duration-300">
+            <h4 className="font-medium text-green-900 dark:text-green-100 mb-2 transition-colors duration-300">⚙️ Administration</h4>
+            <ul className="text-sm text-green-800 dark:text-green-200 space-y-1 transition-colors duration-300">
               <li>• Paramètres (configuration)</li>
               <li>• Fournisseurs (basique)</li>
               <li>• Gestion de Compte (cette section)</li>

@@ -48,7 +48,7 @@ export default function PaymentStatusChart({ data }: PaymentStatusChartProps) {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors duration-300">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Répartition des Factures</h3>
@@ -86,7 +86,7 @@ export default function PaymentStatusChart({ data }: PaymentStatusChartProps) {
         {/* Légende détaillée */}
         <div className="space-y-4">
           {data.map((item, index) => (
-            <div key={index} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+            <div key={index} className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-300">
               <div className="flex items-center space-x-3">
                 {getIcon(item.name)}
                 <div>
@@ -114,19 +114,19 @@ export default function PaymentStatusChart({ data }: PaymentStatusChartProps) {
             <div className="text-lg font-bold text-blue-600">
               {total > 0 ? ((data.find(d => d.name === 'Payées')?.value || 0) / total * 100).toFixed(1) : 0}%
             </div>
-            <div className="text-xs text-blue-700 dark:text-blue-300">Taux de paiement</div>
+            <div className="text-xs text-blue-700 dark:text-blue-300 transition-colors duration-300">Taux de paiement</div>
           </div>
           <div>
             <div className="text-lg font-bold text-indigo-600">
               {totalAmount.toLocaleString()}
             </div>
-            <div className="text-xs text-indigo-700 dark:text-indigo-300">MAD Total</div>
+            <div className="text-xs text-indigo-700 dark:text-indigo-300 transition-colors duration-300">MAD Total</div>
           </div>
           <div>
             <div className="text-lg font-bold text-purple-600">
               {total > 0 ? (totalAmount / total).toFixed(0) : 0}
             </div>
-            <div className="text-xs text-purple-700 dark:text-purple-300">MAD Moyen/facture</div>
+            <div className="text-xs text-purple-700 dark:text-purple-300 transition-colors duration-300">MAD Moyen/facture</div>
           </div>
         </div>
       </div>

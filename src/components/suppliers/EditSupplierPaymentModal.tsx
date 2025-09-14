@@ -58,7 +58,7 @@ export default function EditSupplierPaymentModal({ isOpen, onClose, payment }: E
     <Modal isOpen={isOpen} onClose={onClose} title="Modifier Paiement Fournisseur" size="md">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
             Fournisseur *
           </label>
           <select
@@ -66,7 +66,7 @@ export default function EditSupplierPaymentModal({ isOpen, onClose, payment }: E
             value={formData.supplierId}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
           >
             <option value="">Sélectionner un fournisseur</option>
             {suppliers.map(supplier => (
@@ -79,7 +79,7 @@ export default function EditSupplierPaymentModal({ isOpen, onClose, payment }: E
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
               Montant (MAD) *
             </label>
             <input
@@ -90,20 +90,20 @@ export default function EditSupplierPaymentModal({ isOpen, onClose, payment }: E
               min="0"
               step="0.01"
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
               placeholder="0.00"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
               Mode de paiement
             </label>
             <select
               name="paymentMethod"
               value={formData.paymentMethod}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
             >
               <option value="virement">Virement bancaire</option>
               <option value="cheque">Chèque</option>
@@ -115,7 +115,7 @@ export default function EditSupplierPaymentModal({ isOpen, onClose, payment }: E
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
               Date de paiement
             </label>
             <input
@@ -123,12 +123,12 @@ export default function EditSupplierPaymentModal({ isOpen, onClose, payment }: E
               name="paymentDate"
               value={formData.paymentDate}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
             />
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
               Référence
             </label>
             <input
@@ -136,14 +136,14 @@ export default function EditSupplierPaymentModal({ isOpen, onClose, payment }: E
               name="reference"
               value={formData.reference}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
               placeholder="Numéro de référence"
             />
           </div>
         </div>
         
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
             Description (optionnel)
           </label>
           <textarea
@@ -151,7 +151,7 @@ export default function EditSupplierPaymentModal({ isOpen, onClose, payment }: E
             value={formData.description}
             onChange={handleChange}
             rows={3}
-            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
             placeholder="Description du paiement..."
           />
         </div>
@@ -160,7 +160,7 @@ export default function EditSupplierPaymentModal({ isOpen, onClose, payment }: E
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
           >
             Annuler
           </button>

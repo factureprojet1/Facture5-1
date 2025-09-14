@@ -1,62 +1,65 @@
 import React, { useState } from 'react';
-import { useData, Product } from '../../contexts/DataContext';
+import { useData, Project } from '../../contexts/DataContext';
 import Modal from '../common/Modal';
 
-interface EditProductModalProps {
+interface EditProjectModalProps {
   isOpen: boolean;
   onClose: () => void;
-  product: Product;
+  project: Project;
 }
 
-export default function EditProductModal({ isOpen, onClose, product }: EditProductModalProps) {
-  const { updateProduct } = useData();
+export default function EditProjectModal({ isOpen, onClose, project }: EditProjectModalProps) {
+  const { clients, updateProject, getClientById } = useData();
   const [formData, setFormData] = useState({
-    name: product.name,
-    category: product.category,
-    purchasePrice: product.purchasePrice,
-    salePrice: product.salePrice,
-    unit: product.unit || 'Kg',
-    customUnit: '',
-    stock: product.stock,
-    minStock: product.minStock,
-    status: product.status
+    name: project.name,
+    description: project.description,
+    clientId: project.clientId,
+    budget: project.budget,
+    startDate: project.startDate,
+    endDate: project.endDate,
+    priority: project.priority,
+    status: project.status,
+    progress: project.progress
   });
-
-  const categories = [
-    'Informatique',
-    'Téléphonie',
-    'Bureautique',
-    'Électronique',
-    'Mobilier',
-    'Consommables',
-    'Services',
-    'Autre'
-  ];
-
-  const units = [
-    { value: 'Kg', label: 'Kg' },
-    { value: 'Litre', label: 'Litre' },
-    { value: 'Tonne', label: 'Tonne' },
-    { value: 'Autre', label: 'Autre' }
-  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name) {
-      alert('Le nom est obligatoire');
+
+    if (!formData.name || !formData.clientId) {
+      alert('Le nom du projet et le client sont obligatoires');
       return;
     }
-    
-    const finalUnit = formData.unit === 'Autre' ? formData.customUnit : formData.unit;
-    
-    await updateProduct(product.id, {
-      ...formData,
-      unit: finalUnit
+
+    if (new Date(formData.endDate) <= new Date(formData.startDate)) {
+      alert('La date de fin doit être après la date de début');
+      return;
+    }
+
+    const client = getClientById(formData.clientId);
+    if (!client) {
+      alert('Client non trouvé');
+      return;
+    }
+
+    await updateProject(project.id, {
+      name: formData.name,
+      description: formData.description,
+      clientId: formData.clientId,
+      client,
+      budget: formData.budget,
+      startDate: formData.startDate,
+      endDate: formData.endDate,
+      priority: formData.priority,
+      status: formData.status,
+      progress: formData.progress
     });
+
     onClose();
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
     const { name, value, type } = e.target;
     setFormData({
       ...formData,
@@ -65,12 +68,13 @@ export default function EditProductModal({ isOpen, onClose, product }: EditProdu
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Modifier Produit" size="lg">
+    <Modal isOpen={isOpen} onClose={onClose} title="Modifier Projet" size="lg">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Nom du produit *
+          {/* Nom du projet */}
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+              Nom du projet *
             </label>
             <input
               type="text"
@@ -78,170 +82,173 @@ export default function EditProductModal({ isOpen, onClose, product }: EditProdu
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
-                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
-                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-              placeholder="Nom du produit"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
             />
           </div>
-          
+
+          {/* Description */}
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+              Description
+            </label>
+            <textarea
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              rows={3}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
+            />
+          </div>
+
+          {/* Client */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Catégorie
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+              Client *
             </label>
             <select
-              name="category"
-              value={formData.category}
+              name="clientId"
+              value={formData.clientId}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
-                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
-                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+              required
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
             >
-              <option value="">Sélectionner une catégorie</option>
-              {categories.map(category => (
-                <option key={category} value={category}>{category}</option>
+              <option value="">Sélectionner un client</option>
+              {clients.map(client => (
+                <option key={client.id} value={client.id}>
+                  {client.name}
+                </option>
               ))}
             </select>
           </div>
-          
+
+          {/* Budget */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Prix d'achat (MAD)
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+              Budget (MAD)
             </label>
             <input
               type="number"
-              name="purchasePrice"
-              value={formData.purchasePrice}
+              name="budget"
+              value={formData.budget}
               onChange={handleChange}
               min="0"
               step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
-                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
-                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
             />
           </div>
-          
+
+          {/* Dates */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Prix de vente HT (MAD)
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+              Date de début
             </label>
             <input
-              type="number"
-              name="salePrice"
-              value={formData.salePrice}
+              type="date"
+              name="startDate"
+              value={formData.startDate}
               onChange={handleChange}
-              min="0"
-              step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
-                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
-                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Unité
-            </label>
-            <select
-              name="unit"
-              value={formData.unit}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
-                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
-                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-            >
-              {units.map(unit => (
-                <option key={unit.value} value={unit.value}>{unit.label}</option>
-              ))}
-            </select>
-          </div>
-          
-          {formData.unit === 'Autre' && (
-            <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Unité personnalisée
-              </label>
-              <input
-                type="text"
-                name="customUnit"
-                value={formData.customUnit}
-                onChange={handleChange}
-                placeholder="Ex: Carton, Boîte, Paquet..."
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
-                           focus:ring-2 focus:ring-teal-500 focus:border-transparent 
-                           bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-              />
-            </div>
-          )}
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Stock initial
-            </label>
-            <input
-              type="number"
-              name="stock"
-              value={formData.stock}
-              onChange={handleChange}
-              min="0"
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
-                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
-                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Stock minimum
-            </label>
-            <input
-              type="number"
-              name="minStock"
-              value={formData.minStock}
-              onChange={handleChange}
-              min="0"
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
-                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
-                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+              Date de fin
+            </label>
+            <input
+              type="date"
+              name="endDate"
+              value={formData.endDate}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
+            />
+          </div>
+
+          {/* Priorité */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+              Priorité
+            </label>
+            <select
+              name="priority"
+              value={formData.priority}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
+            >
+              <option value="low">🟢 Basse</option>
+              <option value="medium">🟡 Moyenne</option>
+              <option value="high">🔴 Haute</option>
+            </select>
+          </div>
+
+          {/* Statut */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
               Statut
             </label>
             <select
               name="status"
               value={formData.status}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
-                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
-                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 transition-colors duration-300"
             >
-              <option value="active">Actif</option>
-              <option value="inactive">Inactif</option>
+              <option value="pending">En attente</option>
+              <option value="in_progress">En cours</option>
+              <option value="completed">Terminé</option>
+              <option value="overdue">En retard</option>
             </select>
+          </div>
+
+          {/* Progression */}
+          <div className="md:col-span-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 transition-colors duration-300">
+              Progression (%)
+            </label>
+            <div className="flex items-center space-x-4">
+              <input
+                type="range"
+                name="progress"
+                value={formData.progress}
+                onChange={handleChange}
+                min="0"
+                max="100"
+                className="flex-1"
+              />
+              <span className="text-sm text-gray-700 dark:text-gray-300 transition-colors duration-300">
+                {formData.progress}%
+              </span>
+            </div>
+            <div className="mt-2 w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2 transition-colors duration-300">
+              <div
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  formData.progress >= 80
+                    ? 'bg-green-500'
+                    : formData.progress >= 50
+                    ? 'bg-blue-500'
+                    : formData.progress >= 25
+                    ? 'bg-yellow-500'
+                    : 'bg-red-500'
+                }`}
+                style={{ width: `${formData.progress}%` }}
+              ></div>
+            </div>
           </div>
         </div>
 
+        {/* Boutons */}
         <div className="flex justify-end space-x-3 pt-6">
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
-                       hover:bg-gray-50 dark:hover:bg-gray-600 
-                       transition-colors bg-white dark:bg-gray-700 
-                       text-gray-900 dark:text-gray-100"
+            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
           >
             Annuler
           </button>
           <button
             type="submit"
-            className="px-4 py-2 bg-gradient-to-r from-teal-600 to-blue-600 
-                       hover:from-teal-700 hover:to-blue-700 
-                       text-white rounded-lg transition-all duration-200"
+            className="px-4 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-lg transition-all duration-200"
           >
-            Modifier Produit
+            Modifier Projet
           </button>
         </div>
       </form>

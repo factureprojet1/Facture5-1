@@ -25,7 +25,7 @@ export default function MarginChart({ data }: MarginChartProps) {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors duration-300">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Marge Brute par Produit</h3>
@@ -47,8 +47,8 @@ export default function MarginChart({ data }: MarginChartProps) {
             key={index}
             className={`p-4 rounded-lg border transition-all duration-200 cursor-pointer ${
               hoveredBar === index 
-                ? 'border-purple-300 bg-purple-50 dark:bg-purple-900/20 shadow-md' 
-                : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500'
+                ? 'border-purple-300 dark:border-purple-600 bg-purple-50 dark:bg-purple-900/20 shadow-md' 
+                : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 bg-white dark:bg-gray-700'
             }`}
             onMouseEnter={() => setHoveredBar(index)}
             onMouseLeave={() => setHoveredBar(null)}
@@ -99,7 +99,7 @@ export default function MarginChart({ data }: MarginChartProps) {
 
             {/* Détails au survol */}
             {hoveredBar === index && (
-              <div className="mt-3 p-3 bg-white dark:bg-gray-700 rounded-lg border border-purple-200 dark:border-purple-600 shadow-sm">
+              <div className="mt-3 p-3 bg-white dark:bg-gray-700 rounded-lg border border-purple-200 dark:border-purple-600 shadow-sm transition-colors duration-300">
                 <div className="grid grid-cols-3 gap-4 text-xs">
                   <div className="text-center">
                     <div className="font-bold text-blue-600">{item.salesValue.toLocaleString()}</div>

@@ -62,7 +62,7 @@ export default function CashflowChart({ invoices }: CashflowChartProps) {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors duration-300">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Prévisionnel de Trésorerie</h3>
@@ -83,7 +83,7 @@ export default function CashflowChart({ invoices }: CashflowChartProps) {
               {totalExpected.toLocaleString()}
             </span>
           </div>
-          <p className="text-sm text-green-700 dark:text-green-300">MAD Attendus</p>
+          <p className="text-sm text-green-700 dark:text-green-300 transition-colors duration-300">MAD Attendus</p>
         </div>
         
         <div className="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-200 dark:border-blue-700">
@@ -91,7 +91,7 @@ export default function CashflowChart({ invoices }: CashflowChartProps) {
             <Calendar className="w-5 h-5 text-blue-600" />
             <span className="text-lg font-bold text-blue-600">{totalInvoices}</span>
           </div>
-          <p className="text-sm text-blue-700 dark:text-blue-300">Factures en attente</p>
+          <p className="text-sm text-blue-700 dark:text-blue-300 transition-colors duration-300">Factures en attente</p>
         </div>
         
         <div className="text-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-700">
@@ -101,7 +101,7 @@ export default function CashflowChart({ invoices }: CashflowChartProps) {
               {totalInvoices > 0 ? (totalExpected / totalInvoices).toFixed(0) : '0'}
             </span>
           </div>
-          <p className="text-sm text-purple-700 dark:text-purple-300">MAD/facture</p>
+          <p className="text-sm text-purple-700 dark:text-purple-300 transition-colors duration-300">MAD/facture</p>
         </div>
       </div>
 

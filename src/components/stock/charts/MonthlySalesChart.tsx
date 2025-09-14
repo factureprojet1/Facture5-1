@@ -52,7 +52,7 @@ export default function MonthlySalesChart({ data, selectedYear }: MonthlySalesCh
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 transition-colors duration-300">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Ventes Mensuelles {selectedYear}</h3>
@@ -60,7 +60,7 @@ export default function MonthlySalesChart({ data, selectedYear }: MonthlySalesCh
         </div>
         
         {/* Toggle View Mode */}
-        <div className="flex bg-gray-100 rounded-lg p-1">
+        <div className="flex bg-gray-100 dark:bg-gray-700 rounded-lg p-1 transition-colors duration-300">
           <button
             onClick={() => setViewMode('value')}
             className={`px-3 py-1 rounded text-sm font-medium transition-colors ${
