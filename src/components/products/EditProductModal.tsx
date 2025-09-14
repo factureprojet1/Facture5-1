@@ -78,7 +78,9 @@ export default function EditProductModal({ isOpen, onClose, product }: EditProdu
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
+                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
+                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               placeholder="Nom du produit"
             />
           </div>
@@ -91,7 +93,9 @@ export default function EditProductModal({ isOpen, onClose, product }: EditProdu
               name="category"
               value={formData.category}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
+                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
+                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             >
               <option value="">Sélectionner une catégorie</option>
               {categories.map(category => (
@@ -111,7 +115,9 @@ export default function EditProductModal({ isOpen, onClose, product }: EditProdu
               onChange={handleChange}
               min="0"
               step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
+                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
+                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
           
@@ -126,7 +132,9 @@ export default function EditProductModal({ isOpen, onClose, product }: EditProdu
               onChange={handleChange}
               min="0"
               step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
+                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
+                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
           
@@ -138,7 +146,9 @@ export default function EditProductModal({ isOpen, onClose, product }: EditProdu
               name="unit"
               value={formData.unit}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
+                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
+                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             >
               {units.map(unit => (
                 <option key={unit.value} value={unit.value}>{unit.label}</option>
@@ -157,7 +167,9 @@ export default function EditProductModal({ isOpen, onClose, product }: EditProdu
                 value={formData.customUnit}
                 onChange={handleChange}
                 placeholder="Ex: Carton, Boîte, Paquet..."
-                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
+                           focus:ring-2 focus:ring-teal-500 focus:border-transparent 
+                           bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               />
             </div>
           )}
@@ -172,7 +184,9 @@ export default function EditProductModal({ isOpen, onClose, product }: EditProdu
               value={formData.stock}
               onChange={handleChange}
               min="0"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
+                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
+                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
           
@@ -186,11 +200,13 @@ export default function EditProductModal({ isOpen, onClose, product }: EditProdu
               value={formData.minStock}
               onChange={handleChange}
               min="0"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
+                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
+                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
 
-            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+          <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Statut
             </label>
@@ -198,7 +214,9 @@ export default function EditProductModal({ isOpen, onClose, product }: EditProdu
               name="status"
               value={formData.status}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
+                         focus:ring-2 focus:ring-teal-500 focus:border-transparent 
+                         bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             >
               <option value="active">Actif</option>
               <option value="inactive">Inactif</option>
@@ -210,13 +228,18 @@ export default function EditProductModal({ isOpen, onClose, product }: EditProdu
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg 
+                       hover:bg-gray-50 dark:hover:bg-gray-600 
+                       transition-colors bg-white dark:bg-gray-700 
+                       text-gray-900 dark:text-gray-100"
           >
             Annuler
           </button>
           <button
             type="submit"
-            className="px-4 py-2 bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-700 hover:to-blue-700 text-white rounded-lg transition-all duration-200"
+            className="px-4 py-2 bg-gradient-to-r from-teal-600 to-blue-600 
+                       hover:from-teal-700 hover:to-blue-700 
+                       text-white rounded-lg transition-all duration-200"
           >
             Modifier Produit
           </button>
