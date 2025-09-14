@@ -178,7 +178,6 @@ export default function Login() {
           
           <div className="text-center mt-4">
             <p className="text-xs text-gray-500">
-              Admin Facture.ma ? Utilisez vos identifiants habituels
             </p>
           </div>
         </form>
