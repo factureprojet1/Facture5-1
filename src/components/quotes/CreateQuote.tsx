@@ -233,16 +233,16 @@ export default function CreateQuote() {
         {/* Left Column - Quote Details */}
         <div className="lg:col-span-2 space-y-6">
           {/* Company Information */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Informations Entreprise</h3>
-            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg p-4">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Informations Entreprise</h3>
+            <div className="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-lg p-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <h4 className="font-medium text-gray-900">{user?.company.name}</h4>
-                  <p className="text-sm text-gray-600 mt-1">{user?.company.address}</p>
-                  <p className="text-sm text-gray-600">{user?.company.phone}</p>
+                  <h4 className="font-medium text-gray-900 dark:text-gray-100">{user?.company.name}</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{user?.company.address}</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-300">{user?.company.phone}</p>
                 </div>
-                <div className="text-sm text-gray-600 space-y-1">
+                <div className="text-sm text-gray-600 dark:text-gray-300 space-y-1">
                   <p><span className="font-medium">ICE:</span> {user?.company.ice}</p>
                   <p><span className="font-medium">IF:</span> {user?.company.if}</p>
                   <p><span className="font-medium">RC:</span> {user?.company.rc}</p>
@@ -253,7 +253,7 @@ export default function CreateQuote() {
           </div>
 
           {/* Template Selection */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
             <TemplateSelector 
               selectedTemplate={selectedTemplate}
               onTemplateSelect={setSelectedTemplate}
@@ -262,11 +262,11 @@ export default function CreateQuote() {
           </div>
 
           {/* Quote Info */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Informations Devis</h3>
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Informations Devis</h3>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Date d'émission
                 </label>
                 <input
@@ -277,7 +277,7 @@ export default function CreateQuote() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Valide jusqu'au
                 </label>
                 <input
@@ -291,11 +291,11 @@ export default function CreateQuote() {
           </div>
 
           {/* Client Information */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Informations Client</h3>
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Informations Client</h3>
             
             <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Sélectionner un client *
               </label>
               <select
@@ -313,15 +313,15 @@ export default function CreateQuote() {
             </div>
 
             {selectedClient && (
-              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 rounded-lg p-4">
+              <div className="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 rounded-lg p-4">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <h4 className="font-medium text-gray-900">{selectedClient.name}</h4>
-                    <p className="text-sm text-gray-600 mt-1">{selectedClient.address}</p>
-                    <p className="text-sm text-gray-600">{selectedClient.phone}</p>
-                    <p className="text-sm text-gray-600">{selectedClient.email}</p>
+                    <h4 className="font-medium text-gray-900 dark:text-gray-100">{selectedClient.name}</h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 mt-1">{selectedClient.address}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">{selectedClient.phone}</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-300">{selectedClient.email}</p>
                   </div>
-                  <div className="text-sm text-gray-600">
+                  <div className="text-sm text-gray-600 dark:text-gray-300">
                     <p><span className="font-medium">ICE:</span> {selectedClient.ice}</p>
                   </div>
                 </div>
@@ -330,7 +330,7 @@ export default function CreateQuote() {
 
             {clients.length === 0 && (
               <div>
-                <p className="text-gray-500 text-center py-4">
+                <p className="text-gray-500 dark:text-gray-400 text-center py-4">
                   Aucun client enregistré. Veuillez d'abord ajouter des clients dans la section Clients.
                 </p>
               </div>
@@ -338,9 +338,9 @@ export default function CreateQuote() {
           </div>
 
           {/* Quote Items */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-900">Articles/Services</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">Articles/Services</h3>
               <button
                 onClick={addItem}
                 className="inline-flex items-center space-x-2 px-3 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-sm transition-colors"
@@ -351,8 +351,8 @@ export default function CreateQuote() {
             </div>
 
             {products.length === 0 && (
-              <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mb-4">
-                <p className="text-amber-800 text-sm">
+              <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-lg p-4 mb-4">
+                <p className="text-amber-800 dark:text-amber-200 text-sm">
                   ⚠️ Aucun produit enregistré. Veuillez d'abord ajouter des produits dans la section Produits pour pouvoir créer un devis.
                 </p>
               </div>
@@ -360,9 +360,9 @@ export default function CreateQuote() {
 
             <div className="space-y-4">
               {items.map((item, index) => (
-                <div key={item.id} className="border border-gray-200 rounded-lg p-4">
+                <div key={item.id} className="border border-gray-200 dark:border-gray-600 rounded-lg p-4 bg-white dark:bg-gray-700">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm font-medium text-gray-700">Article #{index + 1}</span>
+                    <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Article #{index + 1}</span>
                     {items.length > 1 && (
                       <button
                         onClick={() => removeItem(item.id)}
@@ -375,7 +375,7 @@ export default function CreateQuote() {
                   
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
                     <div className="md:col-span-4">
-                      <label className="block text-xs font-medium text-gray-700 mb-1">
+                      <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
                         Produit *
                       </label>
                       <select
@@ -396,7 +396,7 @@ export default function CreateQuote() {
                   {/* Première ligne: Quantité et Prix unitaire */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
                     <div>
-                      <label className="block text-xs font-medium text-gray-700 mb-1">
+                      <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
                         Quantité ({getProductBySku(item.description)?.unit || 'unité'})
                       </label>
                       <input
@@ -409,7 +409,7 @@ export default function CreateQuote() {
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-gray-700 mb-1">
+                      <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
                         Prix unit. HT (MAD)
                       </label>
                       <input
@@ -426,7 +426,7 @@ export default function CreateQuote() {
                   {/* Deuxième ligne: TVA et Total */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mt-3">
                     <div>
-                      <label className="block text-xs font-medium text-gray-700 mb-1">
+                      <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
                         TVA
                       </label>
                       <select
@@ -441,7 +441,7 @@ export default function CreateQuote() {
                       </select>
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-gray-700 mb-1">
+                      <label className="block text-xs font-medium text-gray-700 dark:text-gray-300 mb-1">
                         Total HT (MAD)
                       </label>
                       <div className="px-3 py-2 bg-gray-50 dark:bg-gray-600 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-900 dark:text-gray-100">
@@ -452,7 +452,7 @@ export default function CreateQuote() {
                   
                   {/* SKU en petit en bas */}
                   <div className="mt-2">
-                    <div className="text-xs text-gray-500">
+                    <div className="text-xs text-gray-500 dark:text-gray-400">
                       SKU: {getProductBySku(item.description)?.sku || 'N/A'}
                     </div>
                   </div>
@@ -461,10 +461,10 @@ export default function CreateQuote() {
             </div>
             
             {/* Montant en lettres */}
-            <div className="border-t border-gray-200 pt-3">
-              <div className="bg-blue-50 rounded-lg p-3">
-                <p className="text-xs font-medium text-blue-900 mb-1">Montant en lettres:</p>
-                <p className="text-sm text-blue-800 font-medium">
+            <div className="border-t border-gray-200 dark:border-gray-600 pt-3">
+              <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3">
+                <p className="text-xs font-medium text-blue-900 dark:text-blue-100 mb-1">Montant en lettres:</p>
+                <p className="text-sm text-blue-800 dark:text-blue-200 font-medium">
                   {convertNumberToWords(totalTTC)}
                 </p>
               </div>
@@ -474,32 +474,32 @@ export default function CreateQuote() {
 
         {/* Right Column - Summary */}
         <div className="space-y-6">
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 sticky top-6">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Récapitulatif</h3>
+          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 sticky top-6">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Récapitulatif</h3>
             
             <div className="space-y-3">
               <div className="flex justify-between text-sm">
-                <span className="text-gray-600">Sous-total HT</span>
-                <span className="font-medium">{subtotal.toFixed(2)} MAD</span>
+                <span className="text-gray-600 dark:text-gray-300">Sous-total HT</span>
+                <span className="font-medium text-gray-900 dark:text-gray-100">{subtotal.toFixed(2)} MAD</span>
               </div>
               
               {Object.entries(vatByRate).map(([rate, amount]) => (
                 <div key={rate} className="flex justify-between text-sm">
-                  <span className="text-gray-600">TVA {rate}%</span>
-                  <span className="font-medium">{amount.toFixed(2)} MAD</span>
+                  <span className="text-gray-600 dark:text-gray-300">TVA {rate}%</span>
+                  <span className="font-medium text-gray-900 dark:text-gray-100">{amount.toFixed(2)} MAD</span>
                 </div>
               ))}
               
-              <div className="border-t border-gray-200 pt-3">
+              <div className="border-t border-gray-200 dark:border-gray-600 pt-3">
                 <div className="flex justify-between">
-                  <span className="font-medium text-gray-900">Total TTC</span>
+                  <span className="font-medium text-gray-900 dark:text-gray-100">Total TTC</span>
                   <span className="text-lg font-bold text-purple-600">{totalTTC.toFixed(2)} MAD</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 p-4 bg-purple-50 rounded-lg">
-              <p className="text-xs text-purple-800">
+            <div className="mt-6 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+              <p className="text-xs text-purple-800 dark:text-purple-200">
                 Ce devis est valable jusqu'au {new Date(validUntil).toLocaleDateString('fr-FR')} et peut être converti en facture.
               </p>
             </div>

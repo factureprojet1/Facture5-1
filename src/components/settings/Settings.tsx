@@ -599,7 +599,7 @@ export default function Settings() {
 
               <div>
                 <label className="flex items-center space-x-2">
-                  <input type="checkbox" defaultChecked className="rounded border-gray-300 text-teal-600 focus:ring-teal-500" />
+                  <input type="checkbox" defaultChecked className="rounded border-gray-300 dark:border-gray-600 text-teal-600 focus:ring-teal-500" />
                   <span className="text-sm text-gray-700 dark:text-gray-300">Envoyer automatiquement les factures par email</span>
                 </label>
               </div>
@@ -783,7 +783,7 @@ export default function Settings() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-teal-50 to-blue-50 rounded-xl border border-teal-200 p-6">
+          <div className="bg-gradient-to-br from-teal-50 to-blue-50 dark:from-teal-900/20 dark:to-blue-900/20 rounded-xl border border-teal-200 dark:border-teal-700 p-6">
             <div className="text-center">
               <div className="w-12 h-12 bg-gradient-to-br from-teal-600 to-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Palette className="w-6 h-6 text-white" />

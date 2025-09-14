@@ -62,7 +62,7 @@ export default function AddSupplierModal({ isOpen, onClose }: AddSupplierModalPr
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Nom/Raison sociale *
             </label>
             <input
@@ -77,7 +77,7 @@ export default function AddSupplierModal({ isOpen, onClose }: AddSupplierModalPr
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               ICE *
             </label>
             <input
@@ -93,7 +93,7 @@ export default function AddSupplierModal({ isOpen, onClose }: AddSupplierModalPr
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Personne de contact
             </label>
             <input
@@ -107,7 +107,7 @@ export default function AddSupplierModal({ isOpen, onClose }: AddSupplierModalPr
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Téléphone
             </label>
             <input
@@ -121,7 +121,7 @@ export default function AddSupplierModal({ isOpen, onClose }: AddSupplierModalPr
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Email
             </label>
             <input
@@ -135,7 +135,7 @@ export default function AddSupplierModal({ isOpen, onClose }: AddSupplierModalPr
           </div>
           
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Délai de paiement (jours)
             </label>
             <input
@@ -150,7 +150,7 @@ export default function AddSupplierModal({ isOpen, onClose }: AddSupplierModalPr
           </div>
           
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Adresse
             </label>
             <textarea
@@ -164,7 +164,7 @@ export default function AddSupplierModal({ isOpen, onClose }: AddSupplierModalPr
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Statut
             </label>
             <select
