@@ -97,7 +97,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
               value={formData.name}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               placeholder="Nom du produit"
             />
           </div>
@@ -110,7 +110,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
               name="category"
               value={formData.category}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             >
               <option value="">Sélectionner une catégorie</option>
               {categories.map(category => (
@@ -130,7 +130,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
               onChange={handleChange}
               min="0"
               step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
           
@@ -145,7 +145,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
               onChange={handleChange}
               min="0"
               step="0.01"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
           
@@ -157,7 +157,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
               name="unit"
               value={formData.unit}
               onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             >
               {units.map(unit => (
                 <option key={unit.value} value={unit.value}>{unit.label}</option>
@@ -176,7 +176,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
                 value={formData.customUnit}
                 onChange={handleChange}
                 placeholder="Ex: Carton, Boîte, Paquet..."
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+                className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               />
             </div>
           )}
@@ -192,7 +192,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
               onChange={handleChange}
               min="0"
               step="0.001"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               placeholder="Stock de départ"
             />
           </div>
@@ -208,7 +208,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
               onChange={handleChange}
               min="0"
               step="0.001"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
               placeholder="Laisser vide pour utiliser le stock initial"
             />
             <p className="text-xs text-gray-500 mt-1">
@@ -226,7 +226,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
               value={formData.minStock}
               onChange={handleChange}
               min="0"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
         </div>
@@ -235,7 +235,7 @@ export default function AddProductModal({ isOpen, onClose }: AddProductModalProp
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
           >
             Annuler
           </button>
